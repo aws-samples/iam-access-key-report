@@ -105,7 +105,7 @@ def main():
                             df_users.loc[df_users.user == user['UserName'], 'HighPrivilege'] = True
                             policies.append(policy['Name'])
                         else:
-                            logging.info("["+account+"]: Not dangerous - "+user['UserName']+" has policy:"+policy['Name'])
+                            logging.debug("["+account+"]: Not dangerous - "+user['UserName']+" has policy:"+policy['Name'])
                     df_users.loc[df_users.user == user['UserName'], 'policies'] = str(policies)
 
                 # add account number to make joining easy
@@ -122,6 +122,7 @@ def main():
     # reset the index and output to csv
     df_final_report = df_final_report.reset_index()
     del df_final_report['index']
+    logger.info("---- Writing CSV output to "+args.csv_output+" ----")
     df_final_report.to_csv(args.csv_output, index=False)
 
 if __name__ == '__main__':
