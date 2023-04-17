@@ -50,6 +50,7 @@ The role in each account must have the following permissions:
 - iam:CreateCredentialReport
 - iam:GetCredentialReport
 
+## Usage
 Basic usage of the script:
 `$ iam-access-key-report.py [-h] [-s METADATA_SAVE | -l METADATA_LOAD | -i METADATA_CSV_INPUT] [-r ROLE] [-p PROFILE] [-o CSV_OUTPUT]`
 
