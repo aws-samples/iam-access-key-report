@@ -1,7 +1,6 @@
-#
-# Library for getting all account numbers, names, tags and OU from AWS Organization
-# Returns a DataFrame
-#
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
 import logging
 import boto3
 import json
