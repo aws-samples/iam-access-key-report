@@ -17,24 +17,24 @@ It can be run in one of three ways.
 ### 1. End-to-end
 This uses local credentials or a profile that can get account information from AWS Organizations AND can assume a role into each member account. This is the default behaviour.
 ```
-$ python3 ./iam-access-key-report -o output-file.csv [-p PROFILE]
+$ python3 ./iam-access-key-report.py -o output-file.csv [-p PROFILE]
 ```
 
 ### 2. Using separate credentials for AWS Organizations access and assuming roles
 This breaks up the process into two steps:
 1. Use one set of credentials or profile to get account tags and output this to a file
 ```
-$ python3 ./iam-access-key-report -s my-tags.json -p PROFILE_TO_ACCESS_ORGANIZATIONS
+$ python3 ./iam-access-key-report.py -s my-tags.json -p PROFILE_TO_ACCESS_ORGANIZATIONS
 ```
 2. Use a separate set of credentials or profile to access each member account while providing the account tags in a file
 ```
-$ python3 ./iam-access-key-report -l my-tags.json -p PROFILE_TO_ACCESS_MEMBER_ACCOUNTS -o output.csv
+$ python3 ./iam-access-key-report.py -l my-tags.json -p PROFILE_TO_ACCESS_MEMBER_ACCOUNTS -o output.csv
 ```
 
 ### 3. Supplying your own account metadata in CSV format
 If you have existing account metadata in CSV format, you can import it using the `-i` parameter. You will need to make sure that the column storing AWS account numbers is titled 'aws_account_id' otherwise the import will fail.
 ```
-$ python3 ./iam-access-key-report -i account-metadata.csv -p PROFILE_TO_ACCESS_MEMBER_ACCOUNTS -o output.csv
+$ python3 ./iam-access-key-report.py -i account-metadata.csv -p PROFILE_TO_ACCESS_MEMBER_ACCOUNTS -o output.csv
 ```
 
 ## Permissions required
